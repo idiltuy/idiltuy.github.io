@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Idil Tuysuzoglu Lindén</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫖</text></svg>">
+<style>
+  :root {
+    --bg: #fffdf7;
+    --ink: #111;
+    --muted: #666;
+    --link: #0000ee;
+    --visited: #551a8b;
+    --rule: #ccc;
+    --highlight: #fff3a3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141414;
+      --ink: #eee;
+      --muted: #999;
+      --link: #8ab4ff;
+      --visited: #c9a6ff;
+      --rule: #333;
+      --highlight: #4a4300;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0 auto;
+    max-width: 38rem;
+    padding: 3rem 16px 4rem;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.15rem;
+    line-height: 1.55;
+  }
+
+  a { color: var(--link); }
+  a:visited { color: var(--visited); }
+
+  h1 { font-size: 2rem; margin: 0 0 .25rem; font-weight: normal; }
+  h2 { font-size: 1.15rem; margin: 2.25rem 0 .5rem; font-weight: bold; }
+
+  hr { border: 0; border-top: 1px dashed var(--rule); margin: 2rem 0; }
+
+  .sub { color: var(--muted); margin: 0; font-style: italic; }
+
+  .blink::after {
+    content: "_";
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  ul { padding-left: 1.25rem; }
+  li { margin: .2rem 0; }
+
+  mark { background: var(--highlight); color: inherit; padding: 0 .15em; }
+
+  button {
+    font: inherit;
+    font-size: 1rem;
+    padding: .2rem .6rem;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    cursor: pointer;
+  }
+  button:active { transform: translateY(1px); }
+
+  #fact { min-height: 3.2em; }
+
+  .tiny { font-size: .85rem; color: var(--muted); }
+  header .tiny { margin: 0 0 .5rem; }
+
+  .wobble { display: inline-block; transition: transform .2s; }
+  .wobble:hover { transform: rotate(-6deg) scale(1.1); }
+
+  #counter { font-family: "Courier New", monospace; letter-spacing: .1em; }
+
+  footer { margin-top: 3rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Idil Tuysuzoglu Lindén</h1>
+  <p class="tiny">(ee-deal / too-soo-zoh-loo / lind-ayn)</p>
+  <p class="sub">let's dance!</p>
+</header>
+
+<h2>About me</h2>
+<p>
+  I live in Brooklyn and work as a professional utility player
+  (not actually, I'm too good for the Red Sox).
+  In my free time I long-distance swim, short-distance run, and bake to
+  <mark>heavily overcompensate for the calories "burned"</mark>.
+</p>
+
+<h2>Things I am currently</h2>
+<ul>
+  <li><b>reading:</b> anything Jonathan Franzen, even the crummier titles</li>
+  <li><b>listening to:</b> anything, so long as it's not the sound of my own singing</li>
+  <li><b>doing:</b> trying to solve hiring and chronic underutilization</li>
+  <li><b>writing:</b> on my <a href="https://substack.com/@idillinden">Substack</a></li>
+</ul>
+
+<h2>Strong opinions, loosely held</h2>
+<ul>
+  <li>We need to do our part in teaching everyone how to use AI, because we need to prevent a K-shaped economy.</li>
+  <li>Good people know good people, and we need to create more third spaces to find other like-minded individuals (and get off our phones).</li>
+  <li>Pizza is just really good.</li>
+</ul>
+
+<h2>Credentials</h2>
+<ul>
+  <li>Currently: Building (TBR...)</li>
+  <li>Previously: Sana (acq. Workday, $1.1B), Einride, Northvolt</li>
+  <li>A.B. Government and Economics, Harvard, Class of 2022</li>
+  <li>Named one of Sweden's Top 100 Students (despite not being Swedish)</li>
+</ul>
+
+<h2>Say hi</h2>
+<p>
+  The best way to reach me is
+  <a href="mailto:idilt99@gmail.com">email</a>.
+  I also exist on <a href="https://x.com/idillinden">X</a> and
+  <a href="https://substack.com/@idillinden">Substack</a>.
+  I reply to most messages eventually.
+</p>
+
+<hr>
+
+<footer>
+  <p class="tiny">
+    You are visitor number <span id="counter">000001</span> (on this device, anyway).<br>
+    Last updated: <span id="updated"></span>. Made by hand, no frameworks were harmed.<br>
+    Best viewed with your eyes.
+  </p>
+</footer>
+
+<script>
+  // A visitor counter that only counts you.
+  let n = 1;
+  try {
+    n = (parseInt(localStorage.getItem("visits") || "0", 10) || 0) + 1;
+    localStorage.setItem("visits", n);
+  } catch (e) {}
+  document.getElementById("counter").textContent = String(n).padStart(6, "0");
+
+  document.getElementById("updated").textContent =
+    new Date(document.lastModified).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+</script>
+
+</body>
+</html>
